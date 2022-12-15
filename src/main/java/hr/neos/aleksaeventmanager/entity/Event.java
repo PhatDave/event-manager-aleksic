@@ -1,32 +1,29 @@
-package hr.neos.aleksaeventmanager;
-
+package hr.neos.aleksaeventmanager.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Getter
 @Setter
 @RequiredArgsConstructor
 @Entity
-@Table(name="event")
+@Table(name="events")
 public class Event {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "event_sequence")
-    @SequenceGenerator(name = "event_sequence", allocationSize=10)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="event_sequence")
+    @SequenceGenerator(name="event_sequence", allocationSize=10)
     private Long id;
 
-    @Column(unique = true)
+    @Column(unique=true)
     private String name;
 
     @Column
     private Integer maxParticipants;
 
-    /*@OneToMany(mappedBy = "event")
-    private List<Team> teams;*/
+    @OneToMany(mappedBy="event", cascade = {CascadeType.ALL})
+    private List<Team> teams;
 
     @Column
     private Date registrationsNotBefore;
@@ -42,5 +39,4 @@ public class Event {
 
     @Column
     private Integer weeks;
-
 }
