@@ -2,27 +2,28 @@ package hr.neos.aleksaeventmanager.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.util.*;
 
 @Getter
 @Setter
 @RequiredArgsConstructor
 @Entity
-@Table(name="events")
+@Table(name = "events")
 public class Event {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="event_sequence")
-    @SequenceGenerator(name="event_sequence", allocationSize=10)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "event_sequence")
+    @SequenceGenerator(name = "event_sequence", allocationSize = 10)
     private Long id;
 
-    @Column(unique=true)
+    @Column(unique = true)
     private String name;
 
     @Column
     private Integer maxParticipants;
 
-    @OneToMany(mappedBy="event", cascade = {CascadeType.ALL})
+    @OneToMany(mappedBy = "event", cascade = {CascadeType.ALL})
     private List<Team> teams;
 
     @Column
