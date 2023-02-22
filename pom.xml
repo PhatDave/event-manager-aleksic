@@ -14,6 +14,8 @@
     <name>aleksa-event-manager</name>
     <description>aleksa-event-manager</description>
     <properties>
+        <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
+        <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
         <java.version>17</java.version>
     </properties>
     <dependencies>
@@ -48,9 +50,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${org.mapstruct.version}</version>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -67,7 +71,44 @@
                     </excludes>
                 </configuration>
             </plugin>
-        </plugins>
+
+
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+            <source>${java.version}</source> <!-- depending on your project -->
+            <target>${java.version}</target> <!-- depending on your project -->
+            <annotationProcessorPaths>
+                <path>
+                    <groupId>org.mapstruct</groupId>
+                    <artifactId>mapstruct-processor</artifactId>
+                    <version>${org.mapstruct.version}</version>
+                </path>
+                <path>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok</artifactId>
+                    <version>${lombok.version}</version>
+                </path>
+                <path>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok-mapstruct-binding</artifactId>
+                    <version>${lombok-mapstruct-binding.version}</version>
+                </path>
+                <path>
+                    <groupId>org.hibernate</groupId>
+                    <artifactId>hibernate-jpamodelgen</artifactId>
+                    <version>${hibernate.version}</version>
+                </path>
+                <!-- other annotation processors -->
+            </annotationProcessorPaths>
+            <compilerArgs>
+                <arg>-parameters</arg>
+                <arg>-Amapstruct.defaultComponentModel=spring</arg>
+            </compilerArgs>
+        </configuration>
+    </plugin>
+</plugins>
     </build>
 
 </project>
