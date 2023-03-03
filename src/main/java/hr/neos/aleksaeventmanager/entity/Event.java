@@ -1,8 +1,8 @@
 package hr.neos.aleksaeventmanager.entity;
 
-import jakarta.persistence.*;
 import lombok.*;
 
+import javax.persistence.*;
 import java.util.*;
 
 @Getter
@@ -23,9 +23,6 @@ public class Event {
     @Column
     private Integer maxParticipants;
 
-    @OneToMany(mappedBy = "event", cascade = {CascadeType.ALL})
-    private List<Team> teams;
-
     @Column
     private Date registrationsNotBefore;
 
@@ -40,4 +37,7 @@ public class Event {
 
     @Column
     private Integer weeks;
+
+    @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "event")
+    private List<Team> teams;
 }

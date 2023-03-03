@@ -1,8 +1,8 @@
 package hr.neos.aleksaeventmanager.entity;
 
-import jakarta.persistence.*;
 import lombok.*;
 
+import javax.persistence.*;
 import java.util.*;
 
 @Getter
@@ -20,10 +20,11 @@ public class Team {
     @Column
     private String name;
 
-    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
-    private List<Mentor> mentors;
-
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "eventId")
     private Event event;
+
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
+    private List<Mentor> mentors;
+
 }
