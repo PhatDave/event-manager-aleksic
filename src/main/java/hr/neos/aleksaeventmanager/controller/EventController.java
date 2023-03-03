@@ -18,7 +18,7 @@ public class EventController {
     private final EventService eventService;
 
     @PostMapping("/create")
-    private ResponseEntity<?> create(@RequestBody EventRequestDto eventRequestDto){
+    private ResponseEntity<?> create(@RequestBody EventRequestDto eventRequestDto) {
         EventResponseDto savedEvent = eventService.create(eventRequestDto);
         return new ResponseEntity<>(savedEvent, HttpStatus.CREATED);
     }

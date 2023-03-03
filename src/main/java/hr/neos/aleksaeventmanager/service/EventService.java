@@ -9,6 +9,6 @@ import hr.neos.aleksaeventmanager.entity.Team;
 import java.util.List;
 
 public interface EventService {
-    EventResponseDto create (EventRequestDto dto);
+    EventResponseDto create(EventRequestDto dto);
 
 }

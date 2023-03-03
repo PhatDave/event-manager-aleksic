@@ -13,13 +13,13 @@ import java.util.NoSuchElementException;
 
 @Service
 @RequiredArgsConstructor
-public class EventServiceImpl implements EventService{
+public class EventServiceImpl implements EventService {
     private final EventRepository eventRepository;
     private final EventValidator eventValidator;
     private final EventMapper eventMapper;
 
     @Override
-    public EventResponseDto create (EventRequestDto dto){
+    public EventResponseDto create(EventRequestDto dto) {
         eventValidator.validate(dto);
         Event event = eventMapper.toEntity(dto);
         event = eventRepository.save(event);

@@ -10,12 +10,12 @@ import org.springframework.stereotype.Component;
 public class EventValidator {
     private final EventRepository eventRepository;
 
-    public void validate(EventRequestDto dto){
+    public void validate(EventRequestDto dto) {
         validateEventName(dto);
     }
 
-    public void validateEventName(EventRequestDto dto){
-        if(this.eventRepository.existsByName(dto.getName())){
+    public void validateEventName(EventRequestDto dto) {
+        if (this.eventRepository.existsByName(dto.getName())) {
             throw new IllegalStateException("Event with name " + dto.getName() + " already exists.");
         }
     }
