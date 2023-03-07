@@ -27,4 +27,7 @@ public class Team {
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
     private List<Mentor> mentors;
 
+    @OneToMany(mappedBy = "team", cascade = CascadeType.PERSIST)
+    private List<User> users;
+
 }
