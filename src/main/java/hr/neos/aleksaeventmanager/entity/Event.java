@@ -40,4 +40,8 @@ public class Event {
 
     @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "event")
     private List<Team> teams;
+
+    @OneToMany(mappedBy = "event", cascade = {CascadeType.PERSIST})
+    private List<Registration> registrations;
+
 }

@@ -28,9 +28,9 @@ public class User {
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Team team;
 
-    /*@JoinColumn(name = "registrationId")
+    @JoinColumn(name = "registrationId")
     @OneToOne(cascade = CascadeType.ALL)
-    private Registration registration;*/
+    private Registration registration;
 
 }
 
