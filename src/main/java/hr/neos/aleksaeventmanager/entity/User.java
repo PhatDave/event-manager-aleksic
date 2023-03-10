@@ -32,5 +32,11 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     private Registration registration;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Experience experience;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Education education;
+
 }
 

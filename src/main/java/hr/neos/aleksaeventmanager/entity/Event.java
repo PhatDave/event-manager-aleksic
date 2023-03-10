@@ -38,7 +38,7 @@ public class Event {
     @Column
     private Integer weeks;
 
-    @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "event")
+    @OneToMany(mappedBy = "event", cascade = {CascadeType.ALL})
     private List<Team> teams;
 
     @OneToMany(mappedBy = "event", cascade = {CascadeType.PERSIST})
