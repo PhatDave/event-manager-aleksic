@@ -24,8 +24,8 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(value = MethodNotAllowedException.class)
-    public ResponseEntity<ErrorDetails> handleMethodNotAllowedException(MethodNotAllowedException ex) {
+    @ExceptionHandler(value = IllegalAccessException.class)
+    public ResponseEntity<ErrorDetails> handleIllegalAccessException(IllegalAccessException ex) {
         ErrorDetails errorDetails = this.prepareErrorDetails(ex);
         return new ResponseEntity<>(errorDetails, HttpStatus.METHOD_NOT_ALLOWED);
     }

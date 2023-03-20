@@ -20,10 +20,15 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public EventResponseDto create(EventRequestDto dto) {
-        eventValidator.validate(dto);
+        eventValidator.validateEventName(dto);
         Event event = eventMapper.toEntity(dto);
         event = eventRepository.save(event);
         return eventMapper.toDto(event);
+    }
+
+    public Event getById (Long id) {
+        return this.eventRepository.findById(id).orElseThrow(() -> new
+                NoSuchElementException("Event with id " + id + "does not exists."));
     }
 
 }
