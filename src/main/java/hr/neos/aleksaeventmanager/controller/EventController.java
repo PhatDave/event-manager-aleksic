@@ -22,4 +22,5 @@ public class EventController {
         EventResponseDto savedEvent = eventService.create(eventRequestDto);
         return new ResponseEntity<>(savedEvent, HttpStatus.CREATED);
     }
+
 }

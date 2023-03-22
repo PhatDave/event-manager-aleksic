@@ -1,27 +1,27 @@
 package hr.neos.aleksaeventmanager.service;
 
 import hr.neos.aleksaeventmanager.dto.RegistrationRequestDto;
+import hr.neos.aleksaeventmanager.dto.RegistrationResponseDto;
+import hr.neos.aleksaeventmanager.entity.Registration;
+import hr.neos.aleksaeventmanager.mapper.RegistrationMapper;
 import hr.neos.aleksaeventmanager.repository.RegistrationRepository;
 import hr.neos.aleksaeventmanager.validator.EventValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-//@RequiredArgsConstructor
-public interface RegistrationServiceImpl {
-    /*private final RegistrationRepository registrationRepository;
-    private final EventValidator eventValidator;
+@RequiredArgsConstructor
+public class RegistrationServiceImpl implements RegistrationService {
     private final RegistrationMapper registrationMapper;
-    @Override
-    public RegistrationResponseDto create (RegistrationRequestDto dto){
-        dto.
-    }
+    private final RegistrationRepository registrationRepository;
+    private final EventValidator eventValidator;
 
     @Override
-    public EventResponseDto create(EventRequestDto dto) {
-        eventValidator.validateEventName(dto);
-        Event event = eventMapper.toEntity(dto);
-        event = eventRepository.save(event);
-        return eventMapper.toDto(event);
-    }*/
+    public RegistrationResponseDto create (RegistrationRequestDto registrationDto){
+        Registration registration = registrationMapper.toEntity(registrationDto);
+        registration = registrationRepository.save(registration);
+        return registrationMapper.toDto(registration);
+    }
+
 }
+
