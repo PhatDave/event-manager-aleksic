@@ -1,6 +1,8 @@
 package hr.neos.aleksaeventmanager.entity;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 

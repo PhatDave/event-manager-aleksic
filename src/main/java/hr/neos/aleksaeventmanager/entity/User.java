@@ -13,17 +13,14 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
 
+    @Embedded
+    PersonalInfo personalInfo;
+    @Embedded
+    OtherUserInfo otherUserInfo;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
     @SequenceGenerator(name = "user_sequence", allocationSize = 10)
     private Long id;
-
-    @Embedded
-    PersonalInfo personalInfo;
-
-    @Embedded
-    OtherUserInfo otherUserInfo;
-
     @JoinColumn(name = "teamId")
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Team team;

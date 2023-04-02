@@ -5,5 +5,5 @@ import hr.neos.aleksaeventmanager.dto.RegistrationResponseDto;
 
 public interface RegistrationService {
 
-    RegistrationResponseDto create (RegistrationRequestDto dto, Long eventId);
+    RegistrationResponseDto create(RegistrationRequestDto dto, Long eventId);
 }

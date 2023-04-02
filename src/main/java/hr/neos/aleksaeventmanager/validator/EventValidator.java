@@ -1,10 +1,8 @@
 package hr.neos.aleksaeventmanager.validator;
 
 import hr.neos.aleksaeventmanager.dto.EventRequestDto;
-import hr.neos.aleksaeventmanager.dto.EventResponseDto;
 import hr.neos.aleksaeventmanager.entity.Event;
 import hr.neos.aleksaeventmanager.repository.EventRepository;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +19,7 @@ public class EventValidator {
         }
     }
 
-    public void validateEventAcceptReg (Event event) throws IllegalAccessException {
+    public void validateEventAcceptReg(Event event) throws IllegalAccessException {
         Date currentDate = new Date();
 
         if (event.getRegistrationsNotBefore() != null && currentDate.before(event.getRegistrationsNotBefore())) {
