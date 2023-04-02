@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/event/{event_id}/registrations")
 @RequiredArgsConstructor
@@ -17,7 +19,8 @@ public class RegistrationController {
 
     @PostMapping
     private ResponseEntity<?> create(@PathVariable Long event_id, @RequestBody RegistrationRequestDto registrationRequestDto) {
-        RegistrationResponseDto savedRegistration = registrationService.create(registrationRequestDto);
+        RegistrationResponseDto savedRegistration = registrationService.create(registrationRequestDto, event_id);
         return new ResponseEntity<>(savedRegistration, HttpStatus.CREATED);
     }
 }
+  

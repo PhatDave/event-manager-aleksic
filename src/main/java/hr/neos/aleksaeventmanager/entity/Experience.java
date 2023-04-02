@@ -32,7 +32,7 @@ public class Experience {
     @OneToOne(cascade = CascadeType.ALL)
     private User user;
 
-    @OneToMany(mappedBy = "experience", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "experience", cascade = CascadeType.ALL)
     private List<Skill> skills;
 
 }

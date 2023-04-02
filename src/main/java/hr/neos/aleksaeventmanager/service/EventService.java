@@ -11,4 +11,6 @@ import java.util.List;
 public interface EventService {
     EventResponseDto create(EventRequestDto dto);
 
+    Event getById (Long id);
+
 }

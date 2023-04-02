@@ -1,15 +1,22 @@
 package hr.neos.aleksaeventmanager.mapper;
 
 import hr.neos.aleksaeventmanager.dto.EducationRequestDto;
+import hr.neos.aleksaeventmanager.dto.EducationResponseDto;
 import hr.neos.aleksaeventmanager.entity.Education;
-import org.mapstruct.Builder;
-import org.mapstruct.Mapper;
+import hr.neos.aleksaeventmanager.entity.Registration;
+import hr.neos.aleksaeventmanager.entity.User;
+import org.mapstruct.*;
 
 @Mapper(builder = @Builder(disableBuilder = true))
 public interface EducationMapper {
 
+	//@Mapping(source = "year", target = "years")
 	Education toEntity(EducationRequestDto dto);
 
 	//EducationResponseDto toDto(Education dto);
-	//EducationResponseDto toDto(Education education);
+	//@Mapping(source = "years", target = "year")
+	EducationResponseDto toDto(Education education);
+
+
+
 }
