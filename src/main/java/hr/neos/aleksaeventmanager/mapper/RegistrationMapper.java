@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
         },
         builder = @Builder(disableBuilder = true)
 )
-public abstract class RegistrationMapper {
+public abstract class  RegistrationMapper {
 
     @Autowired
     private ExperienceMapper experienceMapper;
@@ -44,8 +44,6 @@ public abstract class RegistrationMapper {
     public void mapRegistrationIdInUser(@MappingTarget Registration registration) {
         registration.getUser().setRegistration(registration);
     }
-
-    //ToDo: clone this method to team
 
     @AfterMapping
     public void mapExperienceInUser(RegistrationRequestDto dto, @MappingTarget Registration registration) {

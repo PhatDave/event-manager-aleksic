@@ -33,18 +33,4 @@ public interface TeamMapper {
         }
     }
 
-	/*@AfterMapping
-	default void mapTeamIdInUser(@MappingTarget Team team) {
-		List<User> users = team.getUsers();
-		if (users != null) {
-			for (int i = 0; i < users.size(); i++) {
-				User user = users.get(i);
-				if (user != null) {
-					user.setTeam(team);
-				}
-			}
-		}
-	}*/
-
-
 }
