@@ -1,6 +1,7 @@
 package hr.neos.aleksaeventmanager.validator;
 
 import hr.neos.aleksaeventmanager.dto.EventRequestDto;
+import hr.neos.aleksaeventmanager.dto.EventResponseDto;
 import hr.neos.aleksaeventmanager.entity.Event;
 import hr.neos.aleksaeventmanager.repository.EventRepository;
 import lombok.RequiredArgsConstructor;

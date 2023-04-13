@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @Service
@@ -18,6 +19,8 @@ import java.util.UUID;
 public class RegistrationServiceImpl implements RegistrationService {
     private final RegistrationMapper registrationMapper;
     private final RegistrationRepository registrationRepository;
+    //private final RegistrationValidator registrationValidator;
+    //private final RegistrationService registrationService;
     private final EventValidator eventValidator;
     private final EventService eventService;
 
@@ -31,6 +34,19 @@ public class RegistrationServiceImpl implements RegistrationService {
         registration.setEvent(event);
         registration = registrationRepository.save(registration);
         return registrationMapper.toDto(registration);
+    }
+
+    @Override
+    public Registration getById(Long id) {
+        return this.registrationRepository.findById(id).orElseThrow(() -> new
+                NoSuchElementException("Registration with id " + id + " does not exists."));
+    }
+
+    @Override
+    public void deleteById(Long registration_id, Long event_id) {
+        eventService.getById(event_id);
+        Registration registration = getById(registration_id);
+        registrationRepository.deleteById(registration_id);
     }
 
 }
