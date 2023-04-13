@@ -7,14 +7,14 @@ import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
 
 @Mapper(
-		/*uses = {
+        /*uses = {
 
-		},*/
-		builder = @Builder(disableBuilder = true)
+        },*/
+        builder = @Builder(disableBuilder = true)
 )
 public abstract class RegistrationMapper {
 
-	public abstract Registration toEntity(RegistrationRequestDto dto);
+    public abstract Registration toEntity(RegistrationRequestDto dto);
 
-	public abstract RegistrationResponseDto toDto(Registration registration);
+    public abstract RegistrationResponseDto toDto(Registration registration);
 }

@@ -3,7 +3,6 @@ package hr.neos.aleksaeventmanager.controller;
 import hr.neos.aleksaeventmanager.dto.RegistrationRequestDto;
 import hr.neos.aleksaeventmanager.dto.RegistrationResponseDto;
 import hr.neos.aleksaeventmanager.service.RegistrationService;
-import hr.neos.aleksaeventmanager.validator.EventValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

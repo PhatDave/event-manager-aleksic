@@ -7,11 +7,11 @@ import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
 
 @Mapper(
-		builder = @Builder(disableBuilder = true)
+        builder = @Builder(disableBuilder = true)
 )
 public interface PersonalMapper {
 
-	User toEntity(PersonalRequestDto dto);
+    User toEntity(PersonalRequestDto dto);
 
-	PersonalResponseDto toDto(User user);
+    PersonalResponseDto toDto(User user);
 }

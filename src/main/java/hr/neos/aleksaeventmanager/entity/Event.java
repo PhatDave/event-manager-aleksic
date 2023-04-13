@@ -1,9 +1,12 @@
 package hr.neos.aleksaeventmanager.entity;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.*;
+import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter

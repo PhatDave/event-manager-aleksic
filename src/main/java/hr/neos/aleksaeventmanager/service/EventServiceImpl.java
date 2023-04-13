@@ -26,7 +26,7 @@ public class EventServiceImpl implements EventService {
         return eventMapper.toDto(event);
     }
 
-    public Event getById (Long id) {
+    public Event getById(Long id) {
         return this.eventRepository.findById(id).orElseThrow(() -> new
                 NoSuchElementException("Event with id " + id + "does not exists."));
     }

@@ -17,7 +17,7 @@ public class RegistrationServiceImpl implements RegistrationService {
     private final EventValidator eventValidator;
 
     @Override
-    public RegistrationResponseDto create (RegistrationRequestDto registrationDto){
+    public RegistrationResponseDto create(RegistrationRequestDto registrationDto) {
         Registration registration = registrationMapper.toEntity(registrationDto);
         registration = registrationRepository.save(registration);
         return registrationMapper.toDto(registration);

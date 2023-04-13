@@ -8,8 +8,8 @@ import org.mapstruct.Mapper;
 @Mapper(builder = @Builder(disableBuilder = true))
 public interface EducationMapper {
 
-	Education toEntity(EducationRequestDto dto);
+    Education toEntity(EducationRequestDto dto);
 
-	//EducationResponseDto toDto(Education dto);
-	//EducationResponseDto toDto(Education education);
+    //EducationResponseDto toDto(Education dto);
+    //EducationResponseDto toDto(Education education);
 }

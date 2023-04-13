@@ -4,7 +4,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.server.MethodNotAllowedException;
 
 import java.util.Date;
 import java.util.NoSuchElementException;
@@ -19,7 +18,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(value = NoSuchElementException.class)
-    public ResponseEntity<ErrorDetails> handleNoSuchElementException(NoSuchElementException ex){
+    public ResponseEntity<ErrorDetails> handleNoSuchElementException(NoSuchElementException ex) {
         ErrorDetails errorDetails = this.prepareErrorDetails(ex);
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
