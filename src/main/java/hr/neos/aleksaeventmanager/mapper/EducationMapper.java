@@ -1,6 +1,7 @@
 package hr.neos.aleksaeventmanager.mapper;
 
 import hr.neos.aleksaeventmanager.dto.EducationRequestDto;
+import hr.neos.aleksaeventmanager.dto.EducationResponseDto;
 import hr.neos.aleksaeventmanager.entity.Education;
 import org.mapstruct.Builder;
 import org.mapstruct.Mapper;

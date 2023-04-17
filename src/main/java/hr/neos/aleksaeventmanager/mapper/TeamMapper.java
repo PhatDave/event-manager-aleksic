@@ -1,5 +1,6 @@
 package hr.neos.aleksaeventmanager.mapper;
 
+import hr.neos.aleksaeventmanager.dto.TeamRequestDto;
 import hr.neos.aleksaeventmanager.entity.Mentor;
 import hr.neos.aleksaeventmanager.entity.Team;
 import org.mapstruct.AfterMapping;
@@ -11,11 +12,13 @@ import java.util.List;
 
 @Mapper(
         uses = {
-                MentorMapper.class,
+                MentorMapper.class
         },
         builder = @Builder(disableBuilder = true)
 )
 public interface TeamMapper {
+
+    Team toEntity(TeamRequestDto dto);
 
     @AfterMapping
     default void mapTeamIdInMentor(@MappingTarget Team team) {
@@ -29,4 +32,5 @@ public interface TeamMapper {
             }
         }
     }
+
 }
