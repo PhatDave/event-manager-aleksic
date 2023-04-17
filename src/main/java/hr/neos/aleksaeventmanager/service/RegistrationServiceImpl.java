@@ -19,8 +19,6 @@ import java.util.UUID;
 public class RegistrationServiceImpl implements RegistrationService {
     private final RegistrationMapper registrationMapper;
     private final RegistrationRepository registrationRepository;
-    //private final RegistrationValidator registrationValidator;
-    //private final RegistrationService registrationService;
     private final EventValidator eventValidator;
     private final EventService eventService;
 
@@ -46,7 +44,12 @@ public class RegistrationServiceImpl implements RegistrationService {
     public void deleteById(Long registration_id, Long event_id) {
         eventService.getById(event_id);
         Registration registration = getById(registration_id);
-        registrationRepository.deleteById(registration_id);
+        if (registration.getEvent().getId().equals(event_id)){
+            registrationRepository.deleteById(registration_id);
+        } else {
+            throw new IllegalStateException("Registration " + registration_id + " is not part of event " + event_id);
+        }
+
     }
 
 }
